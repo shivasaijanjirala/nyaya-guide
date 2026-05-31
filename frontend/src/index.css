@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-navy-900 text-gray-100 font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-navy-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+}
+
+@layer components {
+
+  /* ───── Glassmorphism Cards ───── */
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl;
+  }
+
+  .glass-card-hover {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:-translate-y-1;
+  }
+
+  /* ───── Gradient Backgrounds ───── */
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary-600 via-primary-500 to-accent-500;
+  }
+
+  .gradient-saffron {
+    @apply bg-gradient-to-r from-saffron-500 via-saffron-400 to-yellow-400;
+  }
+
+  .gradient-indian {
+    background: linear-gradient(135deg, #ff9933 0%, #ffffff 50%, #138808 100%);
+  }
+
+  .gradient-mesh {
+    background:
+      radial-gradient(at 20% 80%, rgba(59, 130, 246, 0.15) 0, transparent 50%),
+      radial-gradient(at 80% 20%, rgba(217, 70, 239, 0.1) 0, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(249, 115, 22, 0.05) 0, transparent 70%);
+  }
+
+  /* ───── Buttons ───── */
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 shadow-lg shadow-primary-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/40 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-xl font-semibold bg-white/10 border border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 active:scale-95;
+  }
+
+  .btn-accent {
+    @apply px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-accent-600 to-accent-500 hover:from-accent-500 hover:to-accent-400 shadow-lg shadow-accent-500/25 transition-all duration-300 hover:shadow-xl active:scale-95;
+  }
+
+  .btn-danger {
+    @apply px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 shadow-lg shadow-red-500/25 transition-all duration-300 active:scale-95;
+  }
+
+  /* ───── Form Inputs ───── */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all duration-300;
+  }
+
+  .input-label {
+    @apply block text-sm font-medium text-gray-300 mb-2;
+  }
+
+  /* ───── Badges ───── */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-low {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-500/20 text-green-400 border border-green-500/30;
+  }
+
+  .badge-medium {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+  }
+
+  .badge-high {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+
+  /* ───── Sidebar ───── */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer;
+  }
+
+  .sidebar-link-active {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 cursor-pointer text-white bg-primary-600/20 border-l-2 border-primary-500;
+  }
+
+  /* ───── Animations ───── */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease-in-out infinite;
+  }
+
+  @keyframes gradientShift {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-accent-400 to-saffron-400;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-saffron-400;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   VOICE ASSISTANT STYLES
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Floating Action Button ── */
+.voice-fab {
+  @apply fixed bottom-6 right-6 z-[9999] cursor-pointer;
+  @apply flex items-center justify-center;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.voice-fab-inner {
+  @apply w-14 h-14 rounded-full flex items-center justify-center shadow-2xl;
+  @apply transition-all duration-300;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+  z-index: 2;
+  position: relative;
+}
+
+.voice-fab:hover .voice-fab-inner {
+  @apply scale-110;
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+}
+
+.voice-fab:active .voice-fab-inner {
+  @apply scale-95;
+}
+
+.voice-fab-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 2px solid rgba(139, 92, 246, 0.4);
+  animation: voiceFabPulse 2s ease-in-out infinite;
+}
+
+.voice-fab-ring-delay {
+  animation-delay: 1s;
+}
+
+@keyframes voiceFabPulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.25); opacity: 0; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+
+/* ── Voice Overlay ── */
+.voice-overlay-backdrop {
+  @apply fixed inset-0 z-[10000] flex items-end justify-end p-6;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  animation: voiceFadeIn 0.2s ease-out;
+}
+
+.voice-overlay {
+  @apply w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: voiceSlideUp 0.3s ease-out;
+}
+
+@keyframes voiceFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes voiceSlideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.voice-overlay-header {
+  @apply flex items-center justify-between px-5 py-4 border-b border-white/5;
+}
+
+.voice-overlay-body {
+  @apply px-5 py-6 flex flex-col items-center gap-4;
+  min-height: 200px;
+}
+
+.voice-overlay-actions {
+  @apply flex items-center gap-3 px-5 py-4 border-t border-white/5;
+}
+
+
+/* ── Voice Orb (status indicator) ── */
+.voice-orb-container {
+  @apply relative flex items-center justify-center;
+  width: 100px;
+  height: 100px;
+}
+
+.voice-orb {
+  @apply w-20 h-20 rounded-full flex items-center justify-center;
+  @apply transition-all duration-500;
+  background: rgba(99, 102, 241, 0.2);
+  border: 2px solid rgba(99, 102, 241, 0.3);
+}
+
+.voice-orb-listening {
+  background: rgba(99, 102, 241, 0.3);
+  border-color: rgba(99, 102, 241, 0.6);
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
+  animation: voiceOrbPulse 1.5s ease-in-out infinite;
+}
+
+.voice-orb-speaking {
+  background: rgba(34, 197, 94, 0.25);
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: 0 0 40px rgba(34, 197, 94, 0.3);
+  animation: voiceOrbPulse 1.2s ease-in-out infinite;
+}
+
+.voice-orb-processing {
+  background: rgba(234, 179, 8, 0.2);
+  border-color: rgba(234, 179, 8, 0.4);
+  box-shadow: 0 0 30px rgba(234, 179, 8, 0.2);
+}
+
+@keyframes voiceOrbPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+
+/* ── Orb Waves ── */
+.voice-orb-waves {
+  @apply absolute inset-0 flex items-center justify-center gap-[3px];
+  pointer-events: none;
+}
+
+.voice-orb-waves span {
+  @apply inline-block rounded-full bg-primary-400;
+  width: 3px;
+  height: 8px;
+  opacity: 0.7;
+  animation: voiceWaveBar 0.8s ease-in-out infinite;
+}
+
+.voice-orb-waves span:nth-child(1) { animation-delay: 0s; height: 12px; }
+.voice-orb-waves span:nth-child(2) { animation-delay: 0.1s; height: 18px; }
+.voice-orb-waves span:nth-child(3) { animation-delay: 0.2s; height: 24px; }
+.voice-orb-waves span:nth-child(4) { animation-delay: 0.3s; height: 18px; }
+.voice-orb-waves span:nth-child(5) { animation-delay: 0.4s; height: 14px; }
+.voice-orb-waves span:nth-child(6) { animation-delay: 0.5s; height: 20px; }
+.voice-orb-waves span:nth-child(7) { animation-delay: 0.6s; height: 10px; }
+
+
+/* ── Transcript Display ── */
+.voice-transcript {
+  @apply w-full text-center px-4 py-3 rounded-xl;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.voice-response {
+  @apply w-full px-4 py-3 rounded-xl;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+
+/* ── Action Buttons ── */
+.voice-action-btn {
+  @apply flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl;
+  @apply text-sm font-semibold transition-all duration-200;
+  @apply active:scale-95;
+}
+
+.voice-action-mic {
+  @apply text-white;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.voice-action-mic:hover {
+  box-shadow: 0 4px 25px rgba(99, 102, 241, 0.5);
+}
+
+.voice-action-stop {
+  @apply bg-red-500/20 text-red-400 border border-red-500/30;
+}
+
+.voice-action-stop:hover {
+  @apply bg-red-500/30;
+}
+
+.voice-action-chat {
+  @apply bg-white/10 text-gray-300 border border-white/10;
+}
+
+.voice-action-chat:hover {
+  @apply bg-white/20 text-white;
+}
+
+
+/* ── Mic Button (inline – ChatPage) ── */
+.voice-mic-wrapper {
+  @apply relative inline-flex items-center;
+}
+
+.voice-mic-btn {
+  @apply rounded-full flex items-center justify-center cursor-pointer;
+  @apply transition-all duration-300;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border: none;
+}
+
+.voice-mic-btn:hover {
+  @apply scale-105;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.voice-mic-active {
+  background: linear-gradient(135deg, #ef4444 0%, #f87171 100%) !important;
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.5) !important;
+  animation: micPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes micPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 35px rgba(239, 68, 68, 0.7); }
+}
+
+
+/* ── Listening Indicator (inline) ── */
+.voice-listening-indicator {
+  @apply absolute -bottom-6 left-1/2 -translate-x-1/2;
+}
+
+.voice-wave {
+  @apply flex items-center gap-[2px];
+}
+
+.voice-wave span {
+  @apply inline-block rounded-full bg-red-400;
+  width: 2px;
+  height: 6px;
+  animation: voiceWaveBar 0.7s ease-in-out infinite;
+}
+
+.voice-wave span:nth-child(1) { animation-delay: 0s; }
+.voice-wave span:nth-child(2) { animation-delay: 0.1s; }
+.voice-wave span:nth-child(3) { animation-delay: 0.2s; }
+.voice-wave span:nth-child(4) { animation-delay: 0.3s; }
+.voice-wave span:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes voiceWaveBar {
+  0%, 100% { height: 4px; opacity: 0.5; }
+  50% { height: 14px; opacity: 1; }
+}
+
+
+/* ── Interim Text ── */
+.voice-interim-text {
+  @apply absolute -bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1;
+  @apply whitespace-nowrap;
+  max-width: 200px;
+}
+
+
+/* ── Speak/Listen Button (inline – AI response) ── */
+.voice-speak-btn {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full;
+  @apply text-xs font-semibold transition-all duration-200 cursor-pointer;
+  @apply bg-primary-500/15 text-primary-400 border border-primary-500/20;
+}
+
+.voice-speak-btn:hover {
+  @apply bg-primary-500/25 text-primary-300;
+}
+
+.voice-speak-active {
+  @apply bg-green-500/15 text-green-400 border-green-500/20 !important;
+  animation: speakPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes speakPulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(34, 197, 94, 0); }
+  50% { box-shadow: 0 0 12px rgba(34, 197, 94, 0.3); }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   CHAT HISTORY SIDEBAR
+   ═══════════════════════════════════════════════════════════ */
+
+.chat-history-sidebar {
+  @apply flex flex-col;
+  width: 300px;
+  min-width: 300px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(24px);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem 0 0 1rem;
+  overflow: hidden;
+  animation: historySlideIn 0.25s ease-out;
+  max-height: 100%;
+}
+
+/* Mobile: overlay style */
+@media (max-width: 1023px) {
+  .chat-history-sidebar {
+    @apply fixed inset-y-0 left-0 z-50;
+    border-radius: 0 1rem 1rem 0;
+    width: 320px;
+    box-shadow: 8px 0 40px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes historySlideIn {
+  from { transform: translateX(-16px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.chat-history-item {
+  @apply w-full flex items-start gap-2 px-3 py-2.5 rounded-xl cursor-pointer;
+  @apply transition-all duration-200;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.chat-history-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.chat-history-item-active {
+  background: rgba(99, 102, 241, 0.12) !important;
+  border-color: rgba(99, 102, 241, 0.25) !important;
+}
+
+.chat-history-item-active p {
+  @apply text-primary-300 !important;
+}

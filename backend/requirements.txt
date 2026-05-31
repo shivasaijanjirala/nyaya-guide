@@ -1,0 +1,35 @@
+# ── Core ──
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic[email]
+pydantic-settings
+
+# ── Database ──
+motor
+pymongo
+beanie
+
+# ── Auth & Security ──
+python-jose[cryptography]
+passlib[bcrypt]
+bcrypt
+python-multipart
+cryptography
+
+# ── AI / LLM ──
+google-genai
+# anthropic  # Uncomment if using Claude
+
+# ── File Storage ──
+boto3
+
+# ── Email ──
+aiosmtplib
+jinja2
+
+# ── Rate Limiting ──
+slowapi
+
+# ── CORS / HTTP ──
+httpx
